@@ -107,6 +107,9 @@ fun main(args: Array<String>) {
         println("item at $index is ${items[index]}")
         index++
     }
+
+    // Read User Input
+    userInputDemo()
 }
 
 fun sum(a: Int, b: Int): Int{
@@ -124,3 +127,9 @@ fun printSum2(a: Int, b: Int) {
 }
 
 fun maxOf(a: Int, b: Int) = if (a > b) a else b
+
+fun userInputDemo(){
+    print("Enter an input: ")
+    var userInput = readLine()
+    println("User Input : $userInput")
+}
