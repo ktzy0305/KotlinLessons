@@ -1,12 +1,17 @@
+// Main Method
+// Note: In Kotlin, semicolons are optional to end a statement
 fun main(args: Array<String>) {
     // Print Function
     println("Hello World!")
+
     // Variables
     var a = 0;
     println("a = $a");
+
     // variables can be modified
     a = 5;
     println("After Modification: a = $a");
+
     // Values
     val b = 10
     println("b = $b");
@@ -24,8 +29,6 @@ fun main(args: Array<String>) {
     val vaExample2 = 2   // `Int` type is inferred
     val vaExample3: Int  // Type required when no initializer is provided
     vaExample3 = 3       // deferred assignment
-    
-
 
     // Functions
     var additionExample1 = sum(3,2)
@@ -48,6 +51,62 @@ fun main(args: Array<String>) {
     val s2 = "${s1.replace("is", "was")}, but now is $c"
 
     println(s2)
+
+    // Conditionals (if, else, else if)
+    var d = 10
+    var e = 15
+
+    // Example 1: If
+    if (d < e){
+        println("$d is less than $e")
+    }
+
+    // Example 2: Else If
+    if (d > e){
+        println("$d is more than $e")
+    }
+    else if(d > 5){
+        println("$d is more than 5")
+    }
+    else{
+        println("$d is less than 5 and less than $e")
+    }
+
+    d = 4
+
+    // Example 3: Else
+    if (d > e){
+        println("$d is more than $e")
+    }
+    else if(d > 5){
+        println("$d is more than 5")
+    }
+    else{
+        println("$d is less than 5 and less than $e")
+    }
+
+    // For Loop
+    for (i in 0..10){
+        println(i)
+    }
+
+    // For Each
+    val items = listOf("apple", "banana", "kiwifruit")
+
+    for (item in items) {
+        println(item)
+    }
+
+    for (index in items.indices) {
+        println("item at $index is ${items[index]}")
+    }
+
+    // While Loop
+    var index = 0
+    while (index < items.size) {
+        println("item at $index is ${items[index]}")
+        index++
+    }
 }
 
 fun sum(a: Int, b: Int): Int{
@@ -63,3 +122,5 @@ fun printSum(a: Int, b: Int): Unit {
 fun printSum2(a: Int, b: Int) {
     println("sum of $a and $b is ${a + b}")
 }
+
+fun maxOf(a: Int, b: Int) = if (a > b) a else b
