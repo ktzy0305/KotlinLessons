@@ -1,4 +1,4 @@
-// Main Method
+// Main Method  (Program Entry Point)
 // Note: In Kotlin, semicolons are optional to end a statement
 fun main(args: Array<String>) {
     // Print Function
@@ -86,10 +86,21 @@ fun main(args: Array<String>) {
     }
 
     // For Loop
+    // Iterating over a range
     for (i in 0..10){
         println(i)
     }
-
+    println()
+    // Iterating over a progression
+    for (x in 1..10 step 2) {
+        print(x)
+    }
+    println()
+    for (x in 9 downTo 0 step 3) {
+        print(x)
+    }
+    println()
+    println()
     // For Each
     val items = listOf("apple", "banana", "kiwifruit")
 
@@ -109,7 +120,44 @@ fun main(args: Array<String>) {
     }
 
     // Read User Input
-    userInputDemo()
+    //userInputDemo()
+
+    // When Expression (Switch-Case-Default)
+    println("Rating of 1: ${numberRater(1)}")
+    println("Rating of 3: ${numberRater(3)}")
+    println("Rating of 5: ${numberRater(5)}")
+
+    // Using Lambda Expressions To Filter and Map Collections
+    val fruits = listOf("banana", "avocado", "apple", "kiwifruit")
+    fruits
+        .filter { it.startsWith("a") }
+        .sortedBy { it }
+        .map { it.toUpperCase() }
+        .forEach { println(it) }
+
+    // Map Objects
+    /*
+    In maps, types of both keys and values are user-defined.
+    Key-based access to map entries enables various map-specific
+    processing capabilities from getting a value by key to separate
+    filtering of keys and values.
+     */
+    val numbersMap = mapOf("one" to 1, "two" to 2, "three" to 3)
+
+    // Retrieving Keys and Values
+    println(numbersMap.get("one"))
+    println(numbersMap["one"])
+    println(numbersMap.getOrDefault("four", 10))
+    println(numbersMap["five"])               // null
+    //numbersMap.getValue("six")      // exception!
+
+    println(numbersMap.keys)
+    println(numbersMap.values)
+
+    // Plus and Minus Operators
+    println(numbersMap + Pair("four", 4))
+    println(numbersMap + Pair("one", 10))
+    println(numbersMap + mapOf("five" to 5, "one" to 11))
 }
 
 fun sum(a: Int, b: Int): Int{
@@ -132,4 +180,14 @@ fun userInputDemo(){
     print("Enter an input: ")
     var userInput = readLine()
     println("User Input : $userInput")
+}
+
+fun numberRater(number: Int): String {
+    return when (number) {
+        0 -> "Invalid number"
+        1, 2 -> "Number too low"
+        3 -> "Number correct"
+        4 -> "Number too high, but acceptable"
+        else -> "Number too high"
+    }
 }
